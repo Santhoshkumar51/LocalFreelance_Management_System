@@ -150,7 +150,7 @@ class JobService:
         freelancer = self.userdao.get_user_by_id(freelancer_id)
         if not freelancer or freelancer["role"] != "freelancer":
             raise JobError(f"Freelancer with id {freelancer_id} does not exist")
-        return self.jobdao.get_jobs_by_freelancerid(freelancer_id)
+        return self.jobdao.get_jobs_by_freelancer_id(freelancer_id)
     
     def list_jobs(self, status: Optional[str] = None, limit: int = 100) -> List[Dict]:
         """List all jobs, optionally filtered by status."""
