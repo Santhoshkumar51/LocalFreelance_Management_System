@@ -45,7 +45,7 @@ class JobDAO:
         }).execute().data
         return resp if resp else None
     
-    def get_jobs_by_freelancerid(self, freelancer_id: int) -> List[Dict]:
+    def get_jobs_by_freelancer_id(self, freelancer_id: int) -> List[Dict]:
         """Retrieve all jobs assigned to a specific freelancer."""
         resp = self.sb.table("jobs").select("*").eq("assigned_to", freelancer_id).execute()
         return resp.data or []
