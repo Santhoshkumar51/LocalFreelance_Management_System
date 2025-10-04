@@ -181,9 +181,10 @@ elif page == "Jobs":
             if st.form_submit_button("Update Job"):
                 try:
                     fields = {}
+                    from datetime import date
                     if new_title: fields['title'] = new_title
                     if new_budget > 0: fields['budget'] = new_budget
-                    if new_deadline: fields['deadline'] = str(new_deadline)
+                    if new_deadline !=date.today(): fields['deadline'] = str(new_deadline)
                     if new_status != "Skip": fields['status'] = new_status
                     
                     if fields:
