@@ -94,9 +94,10 @@ class JobService:
         # Validate status if being updated
         if "status" in fields:
             valid_statuses = ['open', 'assigned', 'in-progress', 'completed']
-            if fields["status"] not in valid_statuses:
+            if fields["status"] not in valid_statuses :
                 raise JobError(f"Invalid status. Must be one of: {', '.join(valid_statuses)}")
-            
+            if not job["assigned_to"]:
+                raise JobError(f"Cannot update status as the job is not assigned to any freelancer")
             # Track status change in history
             if fields["status"] != job["status"]:
                 self.job_status_dao.create_job_status(job_id, fields["status"])
