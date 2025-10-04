@@ -70,6 +70,9 @@ class JobDAO:
         
         return job
 
+    def get_jobs_by_status(self,status: str) ->List[Dict]:
+        return self.sb.table("jobs").select("*").eq("status",status).execute().data
+
     def list_jobs(self, limit: int = 100) -> List[Dict]:
         """Retrieve all jobs with optional limit."""
         resp = self.sb.table("jobs").select("*").order("job_id", desc=False).limit(limit).execute()
