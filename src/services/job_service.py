@@ -93,7 +93,7 @@ class JobService:
         
         # Validate status if being updated 
         if "status" in fields:
-            valid_statuses = ['open', 'assigned', 'in-progress', 'completed'] 
+            valid_statuses = ['assigned', 'in-progress', 'completed'] 
             if fields["status"] not in valid_statuses : 
                 raise JobError(f"Invalid status. Must be one of: {', '.join(valid_statuses)}") 
             else: 
