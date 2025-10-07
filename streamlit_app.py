@@ -29,7 +29,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("💼 Freelance Platform Management")
+st.title("💼 Freelance Management System")
 
 # Sidebar navigation
 page = st.sidebar.selectbox(
