@@ -24,7 +24,7 @@ services = get_services()
 
 # Page config
 st.set_page_config(
-    page_title="Freelance Platform",
+    page_title="Freelance Management System",
     page_icon="💼",
     layout="wide"
 )
